@@ -1,15 +1,14 @@
-//
 //  stringCalculator.h
 //  stringCalculator
-//
+//  For CS 372 HW2
 //  Created by Chenyi Ling on 3/11/20.
-//  Copyright © 2020 Chenyi Ling. All rights reserved.
-//
 
 #ifndef stringCalculator_h
 #define stringCalculator_h
 
-
+#include <iostream>
+#include <regex>
+using std::regex;
 #include <string>
 using std::string;
 
@@ -28,14 +27,24 @@ bool isEmptyInput (string str){
     return true;
 }
 
-int strVal (string str){
-    int value;
+string extractNum (string str){
+    string strExtracted;
+    regex regNum ("[^0-9]*([0-9]+).*");
+    strExtracted = std::regex_replace(str, regNum, "$1");
+    return strExtracted;
+}
+
+unsigned long strVal (string str){
+    unsigned long value;
     if (isEmptyInput(str)){
         value = 0;
     }
     else
-        value = str.length();
-
+    {
+        string strNew = extractNum(str);
+        value = stoi(strNew);
+    }
+        
     return value;
 }
 

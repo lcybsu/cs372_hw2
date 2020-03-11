@@ -3,7 +3,7 @@
 //
 //  Created by Chenyi Ling on 3/11/20.
 //  Uses the "Catch" unit-testing framework, version 2
-//  Requires  stringCalculator_test_suites.cpp, catch.hpp,  stringCalculator.h
+//  Requires stringCalculator_test_suites.cpp, catch.hpp,  stringCalculator.h
 
 #define CATCH_CONFIG_FAST_COMPILE
                              // Disable some features for faster compile
