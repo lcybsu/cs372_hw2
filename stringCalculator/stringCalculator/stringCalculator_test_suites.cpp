@@ -18,32 +18,30 @@ using std::string;
 // Test Cases
 // *****************
 
-
 TEST_CASE( "An empty string returns zero")
 {
     string str1 = "";
-    string str2 = " ";
-    string str3 = "   \n   \n     ";
-    
+    string str2 = "   ";
+    string str3 = "     \n   \n     ";
+
    {
    INFO( "Empty string, no space between quote" );
        int emptyStr1 = strVal(str1);
-       int strLength1 = str1.length();
-   REQUIRE( strLength1 == emptyStr1 );
+   REQUIRE( emptyStr1 == 0 );
    }
 
    {
    INFO( "Empty string, one space between quote" );
-       int emptyStr2 = strVal(str1);
-       int strLength2 = str2.length();
-   REQUIRE( strLength2 == emptyStr2 );
+       int emptyStr2 = strVal(str2);
+      
+   REQUIRE( emptyStr2 == 0 );
    }
 
    {
    INFO( "Empty string, multi-line space between quote" );
-        int emptyStr3 = strVal(str1);
-       int strLength3 = str3.length();
-   REQUIRE( strLength3 == emptyStr3);
+        int emptyStr3 = strVal(str3);
+       
+   REQUIRE( emptyStr3 == 0);
    }
 
 }
