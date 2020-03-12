@@ -146,3 +146,21 @@ TEST_CASE("TEST 6: Negative numbers throw an exception")
     
 }
 
+TEST_CASE("TEST 7: Numbers greater than 1000 are ignored")
+{
+    
+    {
+    INFO( "Single number greater than 1000" );
+        string largeNum1 = "1500";
+        REQUIRE( strVal(largeNum1) == 0);
+        REQUIRE_NOTHROW(strVal(largeNum1));
+    }
+    
+    {
+    INFO( "One of two numbers is greater than 1000" );
+        string largeNum1 = "9999,1";
+        REQUIRE( strVal(largeNum1) == 1);
+        REQUIRE_NOTHROW(strVal(largeNum1));
+    }
+    
+}
