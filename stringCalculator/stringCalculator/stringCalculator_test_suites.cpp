@@ -136,4 +136,13 @@ TEST_CASE("TEST 5: Three numbers, delimited either way, returns the sum")
     
 }
 
+TEST_CASE("TEST 6: Negative numbers throw an exception")
+{
+    {
+    INFO( "Negative int exception" );
+        string negInt1 = "-17";
+        REQUIRE_THROWS(strVal(negInt1));
+    }
+    
+}
 

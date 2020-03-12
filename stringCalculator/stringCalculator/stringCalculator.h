@@ -32,7 +32,8 @@ bool isEmptyInput (string str){
 
 
 vector<int> extractNum(string str){
-  regex r("([0-9]+)");
+    
+  regex r("([-]|[0-9]+)");
   std::vector<int> results;
   for(std::sregex_iterator i = std::sregex_iterator(str.begin(), str.end(), r);
       i != std::sregex_iterator();
@@ -56,6 +57,17 @@ int strVal (string str){
         vector<int> numVec = extractNum(str);
         
         for (auto n : numVec){
+            
+            try{
+                if(n<0){
+                    throw n;
+                    std::cout<<"negative number! \n";
+                }
+            }
+            catch (int n){
+                std::cout<<"Exception caught! \n";
+            }
+            
             value += n;
              std::cout<< " num "<< n << std::endl;
         }
