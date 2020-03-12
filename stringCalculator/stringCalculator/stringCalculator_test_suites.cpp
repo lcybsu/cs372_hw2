@@ -190,7 +190,23 @@ TEST_CASE("TEST 9: A multi char delimiter can be defined on the first line ")
     
     {
     INFO( "Self defined '!!!' delimiter");
-        string largeNum2 = "4!!!5!!!6";
-        REQUIRE( strVal(largeNum2) == 15);
+        string selfDefined2 = "4!!!5!!!6";
+        REQUIRE( strVal(selfDefined2) == 15);
+    }
+}
+
+
+TEST_CASE("TEST 10: Many single or multi-char delimiters can be defined")
+{
+    {
+    INFO( "Self defined '[@@]' delimiter" );
+        string selfDefined3 = "1[@@]2[@@]3";
+        REQUIRE( strVal(selfDefined3) == 6);
+    }
+    
+    {
+    INFO( "Self defined '[%$]' delimiter");
+        string largeNum4 = "4[%$]5[%$]6";
+        REQUIRE( strVal(largeNum4) == 15);
     }
 }
