@@ -7,8 +7,11 @@
 #define stringCalculator_h
 
 #include <iostream>
+#include <vector>
+using std::vector;
 #include <regex>
 using std::regex;
+using std::smatch;
 #include <string>
 using std::string;
 
@@ -27,25 +30,39 @@ bool isEmptyInput (string str){
     return true;
 }
 
-string extractNum (string str){
-    string strExtracted;
-    regex regNum ("[^0-9]*([0-9]+).*");
-    strExtracted = std::regex_replace(str, regNum, "$1");
-    return strExtracted;
+
+vector<int> extractNum(string str){
+  regex r("([0-9]+)");
+  std::vector<int> results;
+  for(std::sregex_iterator i = std::sregex_iterator(str.begin(), str.end(), r);
+      i != std::sregex_iterator();
+      i++)
+     {
+         smatch m = *i;
+         results.push_back(std::stoi( m[1].str().c_str() ));
+     }
+     for (auto n: results)
+         std::cout << n << std::endl;
+    return results;
 }
 
-unsigned long strVal (string str){
-    unsigned long value;
+int strVal (string str){
+    int value = 0;
     if (isEmptyInput(str)){
-        value = 0;
+        return value;
     }
     else
     {
-        string strNew = extractNum(str);
-        value = stoi(strNew);
-    }
+        vector<int> numVec = extractNum(str);
         
+        for (auto n : numVec){
+            value += n;
+             std::cout<< " num "<< n << std::endl;
+        }
+    }
     return value;
 }
+
+
 
 #endif /* stringCalculator_h */

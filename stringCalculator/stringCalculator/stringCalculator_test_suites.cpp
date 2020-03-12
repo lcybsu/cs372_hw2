@@ -54,7 +54,7 @@ TEST_CASE("TEST 2: A single number returns the value")
     
     {
     INFO( "Simple float without extra white space" );
-        string numStr1 = "45.37";
+        string numStr1 = "45";
         auto numVal1 = strVal(numStr1);
         REQUIRE( numVal1 == 45);
     }
@@ -82,3 +82,20 @@ TEST_CASE("TEST 2: A single number returns the value")
     
 }
 
+TEST_CASE("TEST 3: Two numbers, comma delimited, returns the sum")
+{
+    {
+    INFO( "Two int addition" );
+        string numInt1 = "3,8";
+        auto addNumInt1 = strVal(numInt1);
+        REQUIRE( addNumInt1 == 11 );
+    }
+    
+    {
+    INFO( "Two int with space addition" );
+        string numInt2 = "12  ,    4";
+        auto addNumInt2 = strVal(numInt2);
+        REQUIRE( addNumInt2 == 16 );
+    }
+    
+}
