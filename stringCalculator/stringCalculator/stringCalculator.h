@@ -59,9 +59,12 @@ int strVal (string str){
         for (auto n : numVec){
             
             try{
-                if(n<0){
+                if(n < 0){
                     throw n;
                     std::cout<<"negative number! \n";
+                }
+                else if (n > 1000){
+                    continue;
                 }
             }
             catch (int n){
