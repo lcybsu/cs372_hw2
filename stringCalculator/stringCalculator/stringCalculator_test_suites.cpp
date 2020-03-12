@@ -117,3 +117,23 @@ TEST_CASE("TEST 4: Two numbers, newline delimited, returns the sum")
     }
     
 }
+
+TEST_CASE("TEST 5: Three numbers, delimited either way, returns the sum")
+{
+    {
+    INFO( "Three int addition delimited with comma" );
+        string numInt3 = "2,4,6";
+        auto addNumInt3 = strVal(numInt3);
+        REQUIRE( addNumInt3 == 12 );
+    }
+    
+    {
+    INFO( "Three int addition delimited with newline" );
+        string numInt4 = "2\n4\n6\n";
+        auto addNumInt4 = strVal(numInt4);
+        REQUIRE( addNumInt4 == 12 );
+    }
+    
+}
+
+
