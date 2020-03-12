@@ -174,8 +174,23 @@ TEST_CASE("TEST 8: A single char delimiter can be defined on the first line ")
     }
     
     {
-    INFO( "Self defined '!' delimiter"  );
+    INFO( "Self defined '!' delimiter");
         string largeNum2 = "4!5!6";
+        REQUIRE( strVal(largeNum2) == 15);
+    }
+}
+
+TEST_CASE("TEST 9: A multi char delimiter can be defined on the first line ")
+{
+    {
+    INFO( "Self defined '###' delimiter" );
+        string selfDefined1 = "1###2###3";
+        REQUIRE( strVal(selfDefined1) == 6);
+    }
+    
+    {
+    INFO( "Self defined '!!!' delimiter");
+        string largeNum2 = "4!!!5!!!6";
         REQUIRE( strVal(largeNum2) == 15);
     }
 }
