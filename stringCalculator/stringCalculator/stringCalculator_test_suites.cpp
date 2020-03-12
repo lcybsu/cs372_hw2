@@ -99,3 +99,21 @@ TEST_CASE("TEST 3: Two numbers, comma delimited, returns the sum")
     }
     
 }
+
+TEST_CASE("TEST 4: Two numbers, newline delimited, returns the sum")
+{
+    {
+    INFO( "Two int addition" );
+        string numInt1 = "1\n13";
+        auto addNumInt1 = strVal(numInt1);
+        REQUIRE( addNumInt1 == 14 );
+    }
+    
+    {
+    INFO( "Two int with space addition" );
+        string numInt2 = "    12 \n   9";
+        auto addNumInt2 = strVal(numInt2);
+        REQUIRE( addNumInt2 == 21 );
+    }
+    
+}
